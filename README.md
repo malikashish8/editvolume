@@ -1,11 +1,11 @@
 # editvolume
-
+[![Build Status](https://travis-ci.com/malikashish8/editvolume.svg?branch=master)](https://travis-ci.com/malikashish8/editvolume)
 Edit contents of a docker volume on host in real time using tools/editors installed on host. This is useful for debugging running containers, editing the config files in a volume etc. Changes are automatically detected and files/folder are synced.
 
 ## Usage
-Run `editvolume` by mounting the **volume** to be edited and the **host folder** on which contents of volume be will available:
+Run `editvolume` by mounting the **volume** to be edited and the **host folder** on which contents of volume will be available:
 ```bash
-docker run --rm \
+docker run --rm -t \
     -e "EDITUSER=`id -u`" \
     -v <volume_to_edit>:/volume \
     -v <host_folder>:/folder \
@@ -13,7 +13,7 @@ docker run --rm \
 ```
 example:
 ```bash
-docker run --rm \
+docker run --rm -t \
     -e "EDITUSER=`id -u`" \
     -v jenkins_config:/volume \
     -v ~/jenkins_config:/folder \
