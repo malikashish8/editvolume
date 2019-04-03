@@ -10,3 +10,5 @@ script:
   - docker run -d --name db arminc/clair-db
   - docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan
   - CLAIR_ADDR=localhost FORMAT_OUTPUT=table CLAIR_OUTPUT=Medium CLAIR_THRESHOLD=0 ./klar malikashish8/editvolume || exit 0
+notifications:
+  slack: malikashish8:0niVwROMqTpfY6UpjWBFBwXx
