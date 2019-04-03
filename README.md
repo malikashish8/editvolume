@@ -3,7 +3,7 @@
 Edit contents of a docker volume on host in real time using tools/editors installed on host. This is useful for debugging running containers, editing the config files in a volume etc. Changes are automatically detected and files/folder are synced.
 
 ## Usage
-Run `editvolume` by mounting the **volume** to be edited and the **host folder** on which contents of volume will available:
+Run `editvolume` by mounting the **volume** to be edited and the **host folder** on which contents of volume be will available:
 ```bash
 docker run --rm \
     -e "EDITUSER=`id -u`" \
