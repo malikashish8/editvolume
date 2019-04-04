@@ -6,21 +6,21 @@ Edit contents of a docker volume on host in real time using tools/editors instal
 ## Usage
 Run `editvolume` by mounting the **volume** to be edited and the **host folder** on which contents of volume will be available:
 ```bash
-docker run --rm -t \
-    -e "EDITUSER=`id -u`" \
+docker run --rm -it \
+    -e "HOSTUSER=`id -u`" \
     -v <volume_to_edit>:/volume \
     -v <host_folder>:/folder \
     malikashish8/editvolume
 ```
 example:
 ```bash
-docker run --rm -t \
-    -e "EDITUSER=`id -u`" \
+docker run --rm -it \
+    -e "HOSTUSER=`id -u`" \
     -v jenkins_config:/volume \
     -v ~/jenkins_config:/folder \
     malikashish8/editvolume
 ```
-> EDITUSER is required to change permission of copied files to host user
+> `HOSTUSER` is required to change ownership of copied files to host user
 
 
 Files are synced as long as __editvolume__ is run. To constantly sync files run it in detached (`-d`) mode.
